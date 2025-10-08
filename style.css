@@ -7,3 +7,7 @@ body {
   margin-inline:auto; 
   padding: 1em;
 }
+nav {
+  display: flex;
+  
+}
