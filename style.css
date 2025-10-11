@@ -1,5 +1,5 @@
 html{
-  --color-accent: oklch(70% 0.15 145);
+  --color-accent: oklch(35.401% 0.04534 145.68);
   accent-color: var(--color-accent);
 }
 body {
@@ -80,4 +80,60 @@ h1{
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+.resume {
+  display: block;
+  margin-top: 2em;
+}
+
+.resume section {
+  margin-bottom: 2.5em;
+}
+
+.resume h2 {
+  border-bottom: 2px solid oklch(89.713% 0.03194 143.991);
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+  color: var(--color-accent);
+}
+
+.resume h3 {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
+.resume time {
+  font-size: 0.9em;
+  color:  var(--color-accent);
+}
+
+.resume p {
+  margin: 0.2em 0 0.5em 0;
+}
+
+.resume ul {
+  margin-left: 1.2em;
+  padding-left: 0.5em;
+}
+
+.resume li {
+  margin-bottom: 0.4em;
+}
+
+.resume strong {
+  color: oklch(28.29% 0.0324 146.376);
+}
+
+@media (max-width: 600px) {
+  .resume h3 {
+    grid-template-columns: 1fr;
+  }
+
+  .resume time {
+    margin-top: 0.2em;
+  }
 }
