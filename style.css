@@ -71,6 +71,14 @@ form button {
   grid-row: span 3;
   gap: 1em;
 }
+
+.projects img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5em;
+}
 h1{
   font-size: 400%;
   line-height: 1.1;
@@ -90,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 .resume section {
   margin-bottom: 2.5em;
 }
+
 
 .resume h2 {
   border-bottom: 2px solid oklch(89.713% 0.03194 143.991);
