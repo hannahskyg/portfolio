@@ -16,7 +16,7 @@ console.log('IT’S ALIVE!');
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"                  // Local server
-  : "https://hannahskyg.github.io/portfolio/";         // GitHub Pages repo name
+  : "/portfolio/";         // GitHub Pages repo name
   
 
 let pages = [
@@ -24,6 +24,7 @@ let pages = [
   { url: 'projects/', title: 'Projects' },
     { url: 'resume/', title: 'Resume' },
     { url: 'contact/', title: 'Contact' },
+    { url: 'https://github.com/hannahskyg', title: 'GitHub' },
 ];
 
 let nav = document.createElement('nav');
@@ -35,8 +36,16 @@ for (let p of pages) {
 
   url = !url.startsWith('http') ? BASE_PATH + url : url;
 
-  nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
+  let a = document.createElement('a');
+  a.href = url;
+  a.textContent = title;
+  nav.append(a);
 
+  if (a.host === location.host && a.pathname === location.pathname) {
+    a.classList.add('current');
+  }
+
+  if (a.host !== location.host) {
+    a.target = "_blank";
+  }
 }
-
-
