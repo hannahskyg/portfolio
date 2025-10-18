@@ -30,7 +30,7 @@ nav a.current {
 nav a:hover{
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
-  background-color: oklch(from var(--color-accent) 95% 5% h)
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 
 }
 form{
@@ -145,4 +145,21 @@ h1, h2, h3, h4, h5, h6 {
   .resume time {
     margin-top: 0.2em;
   }
+}
+
+
+:root {
+  color-scheme: light dark;
+}
+
+/* 4.3 positioning */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+}
+
+input, textarea, button, select {
+  font-family: inherit;
 }

@@ -49,3 +49,37 @@ for (let p of pages) {
     a.target = "_blank";
   }
 }
+
+
+// making html button switch for color scheme
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+  <label class="color-scheme">
+    Theme:
+    <select>
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>`
+);
+
+// figuring out the switch 4.4
+const select = document.querySelector('.color-scheme select');
+
+// 4.4-4.5 fx to set color scheme
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme);
+  select.value = colorScheme;
+}
+// finding local storge color scheme (for automatoic)
+if ("colorScheme" in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
+
+// 4.4 addeventlinkener for the select
+select.addEventListener('input', function (event) {
+  setColorScheme(event.target.value);
+  localStorage.colorScheme = event.target.value;
+});
