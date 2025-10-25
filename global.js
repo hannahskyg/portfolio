@@ -68,7 +68,7 @@ document.body.insertAdjacentHTML(
 // figuring out the switch 4.4
 const select = document.querySelector('.color-scheme select');
 
-// 4.4-4.5 fx to set color scheme
+// 3.4.4-4.5 fx to set color scheme
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme);
   select.value = colorScheme;
@@ -78,8 +78,64 @@ if ("colorScheme" in localStorage) {
   setColorScheme(localStorage.colorScheme);
 }
 
-// 4.4 addeventlinkener for the select
+// 3.4.4 addeventlinkener for the select
 select.addEventListener('input', function (event) {
   setColorScheme(event.target.value);
   localStorage.colorScheme = event.target.value;
 });
+
+//4.1.2
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+// 4.1.4
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  // validating containerElement
+  if (!(containerElement instanceof HTMLElement)) {
+    console.error('Invalid or missing container element.');
+    return;
+  }
+
+  // validating projects
+  if (!Array.isArray(projects)) {
+    console.error('Invalid project data — expected an array.');
+    containerElement.innerHTML = '<p>Error loading projects.</p>';
+    return;
+  }
+
+  // validating headingLevel
+  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  if (!validHeadings.includes(headingLevel)) {
+    console.warn(`Invalid heading level "${headingLevel}" — defaulting to h2.`);
+    headingLevel = 'h2';
+  }
+  // Clear existing content
+  containerElement.innerHTML = '';
+
+  
+  projects.forEach(project => {
+    const article = document.createElement('article');
+
+    const title = project.title;
+    const image = project.image;
+    const description = project.description;
+
+    article.innerHTML = `
+    <h3>${project.title}</h3>
+    <img src="${project.image}" alt="${project.title}">
+    <p>${project.description}</p>
+    `;
+  containerElement.appendChild(article);
+  });
+  }
