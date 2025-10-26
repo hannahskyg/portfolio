@@ -1,50 +1,76 @@
 [
     {
         "title": "Legend of Legends Position Prediction",
-        "year": 2025,
+        "year": "2025",
         "image": "../images/ezreal_LOL.jpg",
-        "description": "Reiciendis assumenda facere doloremque laudantium minus quibusdam illum voluptas, cupiditate omnis quis quo aliquam dolore voluptates eveniet. Quibusdam cumque nam a ipsa quo, tempore quisquam. Nihil modi accusamus possimus illum!"
+        "description": "League of Legends Position Analysis is a data science project conducted in UC San Diego's Halıcıoğlu Data Science Institute's class, DSC80. This project utilizes skills in exploratory data analysis, hypothesis testing, baseline modeling, and fairness analysis. Overall, our objective is to analyze the League of Legends' positions and predict the positions based on the 2025 League of Legends competitive matches data."
     },
     {
         "title": "Twitter Sentiment Analysis of College Students",
-        "year":2025,
+        "year":"2025",
         "image": "../images/twitter.png",
-        "description": "Odio neque molestias autem velit, laboriosam perferendis non temporibus et commodi. Quas dolorum eaque nisi nihil maiores, quaerat quos reiciendis temporibus architecto est odit, delectus quia nesciunt voluptatem alias obcaecati!"
+        "description": "Analyzed student sentiment on social media by preprocessing 1.6M tweets and isolating 195 college-related posts to engineer meaningful features for predictive modeling. Built and validated models using t-tests and hypothesis testing in SciPy, uncovering a 25% spike in negative sentiment during finals week with statistical significance. Developed interactive Plotly visualizations and Pandas summary statistics to clearly communicate sentiment trends, providing actionable insights while coordinating a team to maintain a consistent and efficient data pipeline."
     },
     {
         "title": "SkyCha Product Launch Plan",
-        "year":2024,
+        "year":"2024",
         "image": "../images/SkyCha.jpg",
-        "description": "Nemo atque delectus ipsa, consectetur mollitia non laborum fugit eveniet tenetur perspiciatis ullam, nesciunt beatae eius corrupti reiciendis veniam unde explicabo. Totam quasi tenetur distinctio, deleniti unde laudantium eaque fugiat."
+        "description": "Led the development of a product launch plan for SkyChaa, conducting comprehensive competitor and market analyses to identify opportunities and gaps. Performed customer segmentation and target market profiling to tailor marketing strategies, and developed actionable recommendations to optimize product positioning, adoption, and overall launch success."
     },
     {
-        "title": "Corporis consequuntur vitae est?",
+        "title": "Spotify AI Personalization Market Analysis",
+        "year":"2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Dolorum, atque animi culpa minus voluptatem amet distinctio vero labore. Hic, esse sapiente? Ab, similique voluptas ut inventore a atque tempora alias fugit maxime distinctio ipsam asperiores cupiditate accusantium. Unde."
+        "description": "Mentored a team of 5 to conduct in-depth market research on Spotify’s AI personalization, analyzing user experience and competitor features. Synthesized findings into 3 actionable recommendations—enhancing AI modeling, improving customer interactions, and boosting visibility through media—and presented insights to 100+ students, coaching the team on research, analysis, and presentation skills throughout the process."
     },
     {
-        "title": "Ipsa omnis veniam et.",
+        "title": "Clarins AI Bot Market Analysis",
+        "year":"2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Expedita, rem. Perspiciatis vel quas rem veniam id voluptate sit iure alias itaque, quibusdam sunt laudantium voluptatem non, sapiente quos! Corrupti perspiciatis, ipsum minus aut eaque officiis consequuntur debitis velit."
+        "description": "Conducted SWOT and competitor analyses on Clarins’ AI bot to identify opportunities for enhancing user experience and market positioning. Designed and analyzed a detailed survey with 20+ data points, generating data-driven insights visualized in Google Sheets. Delivered strategic recommendations to 100+ peers through a client-style presentation, translating complex research into actionable steps that informed product strategy and strengthened team collaboration."
     },
     {
-        "title": "Nam sed facere ducimus?",
+        "title": "San Diego MTS Predictive Modeling",
+        "year":"2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "At odit mollitia minima hic, sed est incidunt facere voluptas fugit, odio, autem ea magnam nulla corporis dignissimos eveniet optio voluptatibus quo. Eum explicabo iste, enim exercitationem soluta vitae nesciunt."
+        "description": "Developed predictive models for San Diego’s MTS system to forecast bus wait times using historical data, improving insights into service efficiency. Created comprehensive visualizations, including a county-wide map of all bus lines, to communicate patterns and support data-driven planning for transit operations."
     },
     {
-        "title": "Quae beatae aut reprehenderit?",
+        "title": "Costco Financial Statement Analysis",
+        "year":"2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "At, animi eveniet saepe sed aut hic consequuntur officiis alias doloremque aliquid mollitia in nam provident, reprehenderit natus et tempora. Minima quos fuga alias dignissimos ipsum a perspiciatis. Doloribus, est."
+        "description": "Conducted in-depth financial and strategic analysis of Costco within the retail sector, evaluating market positioning, competitive landscape, and financial health. Performed SWOT analyses, calculated key financial ratios, and completed forecast and discounted cash flow valuations. Synthesized insights into formal reports and presentations, applying data-driven analysis to support strategic investment recommendations and strengthen analytical decision-making skills."
+    },
+
+    {
+        "title": "Personal Website",        
+        "year":"2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Designed and developed a personal website using HTML and CSS to showcase projects, skills, and experiences. Focused on creating a clean, responsive layout with intuitive navigation and interactive elements, building a professional online portfolio that highlights personal brand and technical capabilities."
     },
     {
-        "title": "Itaque reiciendis eveniet autem.",
+        "title": "LOZO Website Development and Feedback Analysis",
+        "year":"2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Deserunt, perspiciatis doloremque rerum rem ipsa laudantium necessitatibus amet fugiat nobis autem adipisci dolore odit, eveniet eligendi voluptatibus harum a nemo facere deleniti saepe dicta at id cumque. Consectetur, reprehenderit."
+        "description": "Contributed to improving an educational web platform with an AI analyzer tool, enhancing report-saving efficiency by 50% for 100+ students and teachers across multiple schools. Conducted usability, feasibility, and utility testing, and developed a data-driven UX persona using Canva by analyzing behavioral data and interview feedback. Collaborated with the product manager to integrate insights into design updates, optimizing core features, improving website usability, and reducing task completion time through product analytics and data visualization."
     },
     {
-        "title": "Odio ipsum hic quasi.",
+        "title": "Nvidia Balance Sheet Analysis",
+        "year":"2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ea quasi rerum quos inventore cupiditate nobis ipsa accusantium at earum? Doloremque provident ullam, officiis fuga pariatur dolor dolores esse non consequatur sequi qui distinctio neque ex iusto sunt a."
+        "description": "Conducted a detailed balance sheet analysis of NVIDIA, evaluating key financial metrics to assess liquidity, solvency, and overall financial health. Calculated and interpreted ratios such as current ratio, debt-to-equity, and return on equity to identify trends and insights. Synthesized findings into a clear report, providing data-driven recommendations and demonstrating strong analytical and financial modeling skills."
+    },
+    {
+        "title": "Meteorite Countries Landing Analysis",
+        "year":"2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Analyzed global meteorite data to identify countries with the highest frequency of meteorite landings. Built predictive models to forecast meteorite occurrences and created visualizations to communicate trends and geographic patterns. Applied data analysis and visualization techniques to uncover insights, demonstrating skills in statistical modeling, geospatial analysis, and data-driven prediction."
+    }, 
+    {
+        "title": "Filter Project",
+        "year":"2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Developed a Python-based project to create and apply custom color filters, experimenting with different filter effects to enhance image processing. Utilized Python libraries and packages to manipulate images, implement transformations, and generate visually distinct outputs, demonstrating practical skills in programming, data manipulation, and visual design."
     }
+
 ]
