@@ -132,10 +132,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const description = project.description;
 
     article.innerHTML = `
-    <h3>${project.title}</h3>
+    <${headingLevel}>${project.title}</${headingLevel}>
     <img src="${project.image}" alt="${project.title}">
     <p>${project.description}</p>
     `;
   containerElement.appendChild(article);
   });
   }
+
+  export async function fetchGitHubData(username) {
+  // return statement here
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
