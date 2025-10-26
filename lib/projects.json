@@ -2,19 +2,19 @@
     {
         "title": "Legend of Legends Position Prediction",
         "year": "2025",
-        "image": "../images/ezreal_LOL.jpg",
+        "image": "images/ezreal_LOL.jpg",
         "description": "League of Legends Position Analysis is a data science project conducted in UC San Diego's Halıcıoğlu Data Science Institute's class, DSC80. This project utilizes skills in exploratory data analysis, hypothesis testing, baseline modeling, and fairness analysis. Overall, our objective is to analyze the League of Legends' positions and predict the positions based on the 2025 League of Legends competitive matches data."
     },
     {
         "title": "Twitter Sentiment Analysis of College Students",
         "year":"2025",
-        "image": "../images/twitter.png",
+        "image": "images/twitter.png",
         "description": "Analyzed student sentiment on social media by preprocessing 1.6M tweets and isolating 195 college-related posts to engineer meaningful features for predictive modeling. Built and validated models using t-tests and hypothesis testing in SciPy, uncovering a 25% spike in negative sentiment during finals week with statistical significance. Developed interactive Plotly visualizations and Pandas summary statistics to clearly communicate sentiment trends, providing actionable insights while coordinating a team to maintain a consistent and efficient data pipeline."
     },
     {
         "title": "SkyCha Product Launch Plan",
         "year":"2024",
-        "image": "../images/SkyCha.jpg",
+        "image": "images/SkyCha.jpg",
         "description": "Led the development of a product launch plan for SkyChaa, conducting comprehensive competitor and market analyses to identify opportunities and gaps. Performed customer segmentation and target market profiling to tailor marketing strategies, and developed actionable recommendations to optimize product positioning, adoption, and overall launch success."
     },
     {

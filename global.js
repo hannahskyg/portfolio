@@ -128,7 +128,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const article = document.createElement('article');
 
     const title = project.title;
-    const image = project.image;
+    const image = project.image.startsWith('http') ? project.image : BASE_PATH + project.image;
     const description = project.description;
 
     article.innerHTML = `
