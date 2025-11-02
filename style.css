@@ -86,6 +86,64 @@ form button {
   object-fit: cover;
   border-radius: 0.5em;
 }
+#projects-pie-plot {
+  width: 100%;
+  max-width: 20em;
+  height: auto;
+  overflow: visible;
+  flex-shrink: 1;
+}
+
+.container {
+  display: flex;
+  align-items: center;  
+  gap: 2em;             
+  margin-block: 2em;
+}
+
+/* Legend container */
+.legend {
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 0.6em;
+
+  list-style: none;
+  padding: 1em;
+  margin: 1.5em 0;
+
+  border: 2px solid oklch(80% 0.05 150);
+  border-radius: 0.5em;
+  background-color: color-mix(in oklch, canvas, var(--color-accent) 5%);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  flex: 1 1 auto;        
+  min-width: 8em;          
+  font-size: clamp(0.7em, 0.9em, 1em);  
+}
+
+.swatch {
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  display: inline-block;
+  border-radius: 0.2em;
+  box-shadow: 0 0 2px rgb(0 0 0 / 0.3);
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+path {
+  transition: 300ms;
+}
+
 h1{
   font-size: 400%;
   line-height: 1.1;
