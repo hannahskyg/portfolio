@@ -142,8 +142,17 @@ form button {
 }
 path {
   transition: 300ms;
+  cursor: pointer;
+
 }
 
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
 h1{
   font-size: 400%;
   line-height: 1.1;

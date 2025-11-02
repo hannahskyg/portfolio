@@ -6,7 +6,8 @@ const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
-// Refactor all plotting into one function
+let selectedIndex = -1;
+
 function renderPieChart(projectsGiven) {
   // re-calculate rolled data
   let newRolledData = d3.rollups(
@@ -27,32 +28,57 @@ function renderPieChart(projectsGiven) {
   let newArcs = newArcData.map((d) => arcGenerator(d));
   
   // Clear up paths and legends
-  let newSVG = d3.select('svg');
-  newSVG.selectAll('path').remove();
+  let svg = d3.select('svg');
+  svg.selectAll('path').remove();
   
   let legend = d3.select('.legend');
   legend.selectAll('li').remove();
   
   // Update paths
   let colors = d3.scaleOrdinal(d3.schemeTableau10);
-  newArcs.forEach((arc, idx) => {
-    newSVG
+  newArcs.forEach((arc, i) => {
+    svg
       .append('path')
       .attr('d', arc)
-      .attr('fill', colors(idx));
+      .attr('fill', colors(i))
+      .attr('class', i === selectedIndex ? 'selected' : null)
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+        
+        svg
+          .selectAll('path')
+          .attr('class', (_, idx) => (
+            idx === selectedIndex ? 'selected' : null
+          ));
+        
+        legend
+          .selectAll('li')
+          .attr('class', (_, idx) => (
+            idx === selectedIndex ? 'legend-item selected' : 'legend-item'
+          ));
+
+        if (selectedIndex === -1) {
+          renderProjects(projectsGiven, projectsContainer, 'h2');
+        } else {
+          // filter projects by the selected year
+          let selectedYear = newData[selectedIndex].label;
+          let filteredByYear = projectsGiven.filter((project) => {
+            return project.year === selectedYear;
+          });
+          renderProjects(filteredByYear, projectsContainer, 'h2');
+        }
+      });
   });
   
-  // Update legends
   newData.forEach((d, idx) => {
     legend
       .append('li')
-      .attr('class', 'legend-item')
+      .attr('class', idx === selectedIndex ? 'legend-item selected' : 'legend-item')
       .attr('style', `--color:${colors(idx)}`)
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
 }
 
-// Call this function on page load
 renderPieChart(projects);
 
 let query = '';
