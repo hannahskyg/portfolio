@@ -130,11 +130,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const title = project.title;
     const image = project.image.startsWith('http') ? project.image : BASE_PATH + project.image;
     const description = project.description;
+    const year = project.year;
 
     article.innerHTML = `
     <${headingLevel}>${title}</${headingLevel}>
     <img src="${image}" alt="${title}">
     <p>${description}</p>
+    <p class="project-year">${year}</p>
     `;
   containerElement.appendChild(article);
   });
