@@ -371,3 +371,57 @@ circle {
 circle:hover {
   transform: scale(1.5);
 }
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+/*Language breakdown restyling  */
+
+#language-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+#language-breakdown div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  padding: 1.5em;
+  border-radius: 0.5em;
+  background-color: color-mix(in oklch, canvas, var(--color-accent) 5%);
+  border: 2px solid oklch(80% 0.05 150);
+  min-height: 8em; 
+}
+
+#language-breakdown dt {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: color-mix(in oklch, canvasText, canvas 30%);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+#language-breakdown dd {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-accent);
+  margin: 0;
+}
