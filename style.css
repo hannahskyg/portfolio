@@ -256,3 +256,118 @@ input, textarea, button, select {
   font-weight: 600;
   color: #333;
 }
+
+/* Stats styling */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  padding: 1.5em;
+  border-radius: 0.5em;
+  background-color: color-mix(in oklch, canvas, var(--color-accent) 5%);
+  border: 2px solid oklch(80% 0.05 150);
+  min-height: 8em; 
+}
+
+.stats dt {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: color-mix(in oklch, canvasText, canvas 30%);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.stats dd {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.stats abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
+
+.gridlines line {
+  stroke: #ccc;
+  stroke-width: 1;
+  stroke-dasharray: 2, 2;
+}
+
+.gridlines path {
+  display: none;
+}
+
+
+/* Info list styling */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+dl.info dt {
+  font-weight: 600;
+  color: color-mix(in oklch, canvasText, canvas 40%);
+  margin: 0;
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Tooltip positioning and styling */
+.tooltip {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid color-mix(in oklch, canvasText, canvas 85%);
+  border-radius: 0.75em;
+  padding: 1.25em;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.07),
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  min-width: 250px;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+
+/* Circle hover effects */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
