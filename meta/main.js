@@ -162,11 +162,13 @@ function renderScatterPlot(data, commits) {
  const rScale = d3.scaleSqrt()
   .domain([minLines, maxLines])
   .range([2, 30]);
+
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
   // Draw dots on top of gridlines and axes
   svg.append('g')
   .attr('class', 'dots')
   .selectAll('circle')
-  .data(commits)
+  .data(sortedCommits)
   .join('circle')
   .attr('cx', d => xScale(d.datetime))
   .attr('cy', d => yScale(d.hourFrac))
