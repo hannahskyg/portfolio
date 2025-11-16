@@ -1,5 +1,11 @@
 [
     {
+        "title": "Bikewatching Interactive Data Visualization",
+        "year": "2025",
+        "image": "images/bikewatching project.PNG",
+        "description": "This project created an interactive geospatial visualization of Bluebikes traffic in Boston/Cambridge using Mapbox GL JS for the basemap and D3.js for custom overlays, integrating bike lane data and over 260,000 trip records. I used a D3 Square Root Scale to accurately size station markers based on total traffic volume and implemented a reactive time slider for temporal data filtering, allowing users to analyze traffic flow (arrivals vs. departures) across different times of day. This required synchronizing D3's SVG markers with Mapbox's pan and zoom events, demonstrating a full-stack data visualization pipeline."
+    },
+    {
         "title": "Legend of Legends Position Prediction",
         "year": "2025",
         "image": "images/ezreal_LOL.jpg",
