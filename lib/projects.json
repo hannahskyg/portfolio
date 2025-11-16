@@ -71,12 +71,6 @@
         "year":"2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Analyzed global meteorite data to identify countries with the highest frequency of meteorite landings. Built predictive models to forecast meteorite occurrences and created visualizations to communicate trends and geographic patterns. Applied data analysis and visualization techniques to uncover insights, demonstrating skills in statistical modeling, geospatial analysis, and data-driven prediction."
-    }, 
-    {
-        "title": "Filter Project",
-        "year":"2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Developed a Python-based project to create and apply custom color filters, experimenting with different filter effects to enhance image processing. Utilized Python libraries and packages to manipulate images, implement transformations, and generate visually distinct outputs, demonstrating practical skills in programming, data manipulation, and visual design."
     }
 
 ]
