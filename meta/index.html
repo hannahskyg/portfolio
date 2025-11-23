@@ -9,6 +9,22 @@
 <body>
     <h1>Meta Information</h1>
     <p>This meta page contains all the statistics for the coding of this website.</p>
+    <div id="time-filter" style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem;">
+  <label for="commit-progress" style="flex: 1;">
+    Show commits until:
+    <input
+      type="range"
+      id="commit-progress"
+      min="0"
+      max="100"
+      value="100"
+      style="width: 200px;"
+    >
+  </label>
+
+  <time id="commit-time" style="margin-left: auto;"></time>
+</div>
+
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
@@ -24,7 +40,7 @@
         <dd id="commit-date"></dd>
 
         <dt>Time</dt>
-        <dd id="commit-time"></dd>
+        <dd id="tooltip-time"></dd>
         
         <dt>Author</dt>
         <dd id="commit-author"></dd>

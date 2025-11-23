@@ -362,10 +362,15 @@ dl.info dd {
 
 /* Circle hover effects */
 circle {
-  transition: fill-opacity 200ms, transform 200ms;
+  transition: fill-opacity 200ms, transform 200ms,
+      r calc(var(--r) * 100ms);
   transform-origin: center;
   transform-box: fill-box;
   cursor: pointer;
+
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
