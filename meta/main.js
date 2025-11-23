@@ -375,6 +375,42 @@ function updateScatterPlot(data, commits) {
     });
 }
 
+function updateFileDisplay(filteredCommits) {
+  let lines = filteredCommits.flatMap(d => d.lines);
+  let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+  let files = d3
+  .groups(lines, (d) => d.file)
+  .map(([name, lines]) => {
+    return { name, lines };
+  })
+  .sort((a, b) => b.lines.length - a.lines.length);
+
+  let filesContainer = d3.select('#files')
+    .selectAll('div.file-item')
+    .data(files, d => d.name)
+    .join(
+      enter => enter.append('div')
+        .attr('class', 'file-item')
+        .call(div => {
+          div.append('div').attr('class', 'file-info')
+            .html(d => `<dt><code>${d.name}</code></dt><div class="file-line-count">${d.lines.length} lines</div>`);
+          div.append('dd').attr('class', 'file-dots');
+        })
+    );
+
+  filesContainer.select('.file-info')
+    .html(d => `<dt><code>${d.name}</code></dt><div class="file-line-count">${d.lines.length} lines</div>`);
+
+  filesContainer.select('.file-dots')
+    .selectAll('div.loc')
+    .data(d => d.lines)
+    .join('div')
+    .attr('class', 'loc')
+    .attr('style', (d) => `--color: ${colors(d.type)}`);
+}
+
+
 
 function onTimeSliderChange() {
   commitProgress = +slider.value;
@@ -390,6 +426,9 @@ function onTimeSliderChange() {
 
   // --- NEW: Update scatter plot ---
   updateScatterPlot(data, filteredCommits);
+
+  // --- NEW: Update file display ---
+  updateFileDisplay(filteredCommits);
 }
 
 

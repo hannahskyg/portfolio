@@ -430,3 +430,47 @@ circle.selected {
   color: var(--color-accent);
   margin: 0;
 }
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+
+/* Unit visualization for lines of code */
+#files dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background-color: var(--color); /* use the JS-assigned color */
+  border-radius: 50%;
+}
+
+.file-line-count {
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 0.3em;
+}
