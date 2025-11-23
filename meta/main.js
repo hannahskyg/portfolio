@@ -1,4 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
 let xScale, yScale;
 
@@ -42,13 +43,14 @@ function processCommits(data) {
       // Add lines property but make it hidden
       Object.defineProperty(ret, 'lines', {
         value: lines,
-        enumerable: false,   // hides it when console.logging / iterating ✅
+        enumerable: false,
         writable: true,
         configurable: true,
       });
 
       return ret;
-    });
+    })
+    .sort((a, b) => a.datetime - b.datetime); // ADDED SORT BY DATETIME
 }
 
 function renderCommitInfo(data, commits) {
@@ -112,9 +114,6 @@ function renderCommitInfo(data, commits) {
   const maxDay = d3.greatest(workByDay, d => d[1])?.[0];
   addStat('Day of the week most work is done', maxDay);
 }
-
-
-
 
 function renderScatterPlot(data, commits) {
   const width = 1000;
@@ -209,6 +208,7 @@ function renderTooltipContent(commit) {
   author.textContent = commit.author;
   lines.textContent = commit.totalLines;
 }
+
 function updateTooltipVisibility(isVisible) {
   const tooltip = document.getElementById('commit-tooltip');
   tooltip.hidden = !isVisible;
@@ -226,12 +226,11 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY}px`;
 }
 
-
 function createBrushSelector(svg) {
   // Create brush
   svg.call(d3.brush().on('start brush end', brushed));
 
-    // Bring dots to front
+  // Bring dots to front
   svg.select('.dots').raise();
 }
 
@@ -308,6 +307,7 @@ function renderLanguageBreakdown(selection) {
     `;
   }
 }
+
 let data = await loadData();
 let commits = processCommits(data);
 let filteredCommits = commits;
@@ -316,7 +316,7 @@ renderScatterPlot(data, commits);
 createBrushSelector(d3.select('svg'));
 
 // -----------------------------
-// STEP 1.1: TIME SLIDER FILTER
+// TIME SLIDER FILTER
 // -----------------------------
 let commitProgress = 100;
 
@@ -380,11 +380,11 @@ function updateFileDisplay(filteredCommits) {
   let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
   let files = d3
-  .groups(lines, (d) => d.file)
-  .map(([name, lines]) => {
-    return { name, lines };
-  })
-  .sort((a, b) => b.lines.length - a.lines.length);
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+      return { name, lines };
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
 
   let filesContainer = d3.select('#files')
     .selectAll('div.file-item')
@@ -410,8 +410,6 @@ function updateFileDisplay(filteredCommits) {
     .attr('style', (d) => `--color: ${colors(d.type)}`);
 }
 
-
-
 function onTimeSliderChange() {
   commitProgress = +slider.value;
   commitMaxTime = timeScale.invert(commitProgress);
@@ -421,21 +419,66 @@ function onTimeSliderChange() {
     timeStyle: "short",
   });
 
-  // --- NEW: Filter commits ---
+  // --- Filter commits ---
   filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
 
-  // --- NEW: Update scatter plot ---
+  // --- Update scatter plot ---
   updateScatterPlot(data, filteredCommits);
 
-  // --- NEW: Update file display ---
+  // --- Update file display ---
   updateFileDisplay(filteredCommits);
 }
 
-
-// initialize displayed time
 onTimeSliderChange();
 
-// attach listener
 slider.addEventListener("input", onTimeSliderChange);
 
+d3.select('#scatter-story')
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+  .attr('class', 'step')
+  .html(
+    (d, i) => `
+    <p>On ${d.datetime.toLocaleString('en', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    })},
+    I made <a href="${d.url}" target="_blank">${
+      i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
+    }</a>.
+    I edited ${d.totalLines} lines across ${
+      d3.rollups(
+        d.lines,
+        (D) => D.length,
+        (d) => d.file,
+      ).length
+    } files.
+    Then I looked over all I had made, and I saw that it was very good.</p>
+  `,
+  );
 
+function onStepEnter(response) {
+  const stepCommitDate = response.element.__data__.datetime;
+  
+  filteredCommits = commits.filter(d => d.datetime <= stepCommitDate);
+  
+  updateScatterPlot(data, filteredCommits);
+  updateFileDisplay(filteredCommits);
+  
+  timeDisplay.textContent = stepCommitDate.toLocaleString("en-US", {
+    dateStyle: "long",
+    timeStyle: "short",
+  });
+  
+  commitProgress = timeScale(stepCommitDate);
+  slider.value = commitProgress;
+}
+
+const scroller = scrollama();
+scroller
+  .setup({
+    container: '#scrolly-1',
+    step: '#scrolly-1 .step',
+  })
+  .onStepEnter(onStepEnter);
